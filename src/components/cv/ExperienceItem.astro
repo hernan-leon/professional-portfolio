@@ -1,0 +1,199 @@
+---
+/**
+ * Experience Item Component
+ * Individual job entry with country/location prominently displayed
+ */
+
+import type { Experience } from '../../lib/types';
+import { formatDate, calculateDuration } from '../../lib/cv';
+
+interface Props {
+  experience: Experience;
+  compact?: boolean;
+}
+
+const { experience, compact = false } = Astro.props;
+const duration = calculateDuration(experience.startDate, experience.endDate);
+---
+
+<article class="experience-item" class:list={{ compact }}>
+  <div class="experience-header">
+    <div class="experience-title-group">
+      <h3 class="experience-position">{experience.position}</h3>
+      <p class="experience-company">{experience.company}</p>
+    </div>
+
+    <div class="experience-meta">
+      <p class="experience-location">📍 {experience.location}</p>
+      <p class="experience-dates">
+        {formatDate(experience.startDate)} - {formatDate(experience.endDate)} · {duration}
+      </p>
+      <span class="experience-type">{experience.type}</span>
+    </div>
+  </div>
+
+  {!compact && (
+    <div class="experience-content">
+      <p class="experience-description">{experience.description}</p>
+
+      {experience.achievements && experience.achievements.length > 0 && (
+        <ul class="experience-achievements">
+          {experience.achievements.map((achievement) => (
+            <li>{achievement}</li>
+          ))}
+        </ul>
+      )}
+
+      {experience.technologies && experience.technologies.length > 0 && (
+        <div class="experience-technologies">
+          {experience.technologies.map((tech) => (
+            <span class="tech-tag">{tech}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  )}
+</article>
+
+<style>
+  .experience-item {
+    padding: var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-background);
+    transition: all var(--transition-base);
+  }
+
+  .experience-item:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .experience-item.compact {
+    padding: var(--space-4);
+  }
+
+  .experience-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .experience-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .experience-title-group {
+    flex: 1;
+  }
+
+  .experience-position {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .experience-company {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  .experience-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .experience-meta {
+      align-items: flex-end;
+      text-align: right;
+    }
+  }
+
+  .experience-location {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+  }
+
+  .experience-dates {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    margin: 0;
+  }
+
+  .experience-type {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-border);
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+    text-transform: capitalize;
+  }
+
+  .experience-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .experience-description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  .experience-achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .experience-achievements li {
+    padding-left: var(--space-4);
+    position: relative;
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .experience-achievements li::before {
+    content: '•';
+    position: absolute;
+    left: var(--space-2);
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .experience-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tech-tag {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-weight-medium);
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+/**
+ * Site Footer
+ * Minimal footer with copyright and links
+ */
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <p class="copyright">
+        © {currentYear} Hernan Leon. All rights reserved.
+      </p>
+
+      <nav class="footer-links">
+        <a href="https://linkedin.com/in/hernanleon" target="_blank" rel="noopener noreferrer" class="footer-link">
+          LinkedIn
+        </a>
+        <a href="https://github.com/hernanleon" target="_blank" rel="noopener noreferrer" class="footer-link">
+          GitHub
+        </a>
+        <a href="mailto:contact@hernanleon.com" class="footer-link">
+          Email
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-8) 0;
+    margin-top: var(--space-16);
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .copyright {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    margin: 0;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-link {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-link:hover {
+    color: var(--color-accent);
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>

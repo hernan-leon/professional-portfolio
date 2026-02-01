@@ -1,0 +1,174 @@
+---
+/**
+ * Project Card Component
+ * Individual project display card
+ */
+
+import type { Project } from '../../lib/types';
+import { formatDate } from '../../lib/cv';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-header">
+    <h3 class="project-name">{project.name}</h3>
+    <p class="project-role">{project.role}</p>
+  </div>
+
+  <p class="project-description">{project.description}</p>
+
+  <div class="project-meta">
+    <p class="project-dates">
+      {formatDate(project.startDate)} - {formatDate(project.endDate)}
+    </p>
+  </div>
+
+  {project.highlights && project.highlights.length > 0 && (
+    <ul class="project-highlights">
+      {project.highlights.map((highlight) => (
+        <li>{highlight}</li>
+      ))}
+    </ul>
+  )}
+
+  {project.technologies && project.technologies.length > 0 && (
+    <div class="project-technologies">
+      {project.technologies.map((tech) => (
+        <span class="tech-tag">{tech}</span>
+      ))}
+    </div>
+  )}
+
+  {(project.url || project.github) && (
+    <div class="project-links">
+      {project.url && (
+        <a href={project.url} target="_blank" rel="noopener noreferrer" class="project-link">
+          View Project →
+        </a>
+      )}
+      {project.github && (
+        <a href={project.github} target="_blank" rel="noopener noreferrer" class="project-link">
+          GitHub →
+        </a>
+      )}
+    </div>
+  )}
+</article>
+
+<style>
+  .project-card {
+    padding: var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: all var(--transition-base);
+    height: 100%;
+  }
+
+  .project-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .project-header {
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .project-role {
+    font-size: var(--font-size-sm);
+    color: var(--color-accent);
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+  }
+
+  .project-description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  .project-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+
+  .project-dates {
+    margin: 0;
+  }
+
+  .project-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .project-highlights li {
+    padding-left: var(--space-4);
+    position: relative;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .project-highlights li::before {
+    content: '•';
+    position: absolute;
+    left: var(--space-2);
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tech-tag {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: auto;
+  }
+
+  .project-link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .project-link:hover {
+    text-decoration: underline;
+  }
+</style>

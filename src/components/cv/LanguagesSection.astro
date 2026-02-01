@@ -1,0 +1,89 @@
+---
+/**
+ * Languages Section
+ * Displays language proficiencies
+ */
+
+import { getCVData } from '../../lib/cv';
+
+const cvData = getCVData();
+const { languages } = cvData;
+---
+
+<section class="languages-section">
+  <h2 class="section-title">Languages</h2>
+
+  <div class="languages-grid">
+    {languages.map((lang) => (
+      <div class="language-item">
+        <span class="language-name">{lang.language}</span>
+        <span class="language-proficiency" data-proficiency={lang.proficiency}>
+          {lang.proficiency}
+        </span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .languages-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .language-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-background);
+  }
+
+  .language-name {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+  }
+
+  .language-proficiency {
+    font-size: var(--font-size-sm);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    text-transform: capitalize;
+    font-weight: var(--font-weight-medium);
+    background-color: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .language-proficiency[data-proficiency="native"],
+  .language-proficiency[data-proficiency="fluent"] {
+    background-color: #10b981;
+    color: white;
+  }
+
+  .language-proficiency[data-proficiency="professional"] {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  .language-proficiency[data-proficiency="intermediate"] {
+    background-color: #f59e0b;
+    color: white;
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+/**
+ * Summary Section
+ * Professional bio emphasizing international experience
+ */
+
+import { getCVData } from '../../lib/cv';
+
+const cvData = getCVData();
+const { summary } = cvData.personal;
+---
+
+<section class="summary">
+  <div class="container-narrow">
+    <h2 class="section-title">About</h2>
+    <p class="summary-text">{summary}</p>
+  </div>
+</section>
+
+<style>
+  .summary {
+    padding: var(--space-12) 0;
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .summary-text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+</style>

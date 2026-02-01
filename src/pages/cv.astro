@@ -1,0 +1,69 @@
+---
+/**
+ * CV Page
+ * Full structured CV with all sections
+ */
+
+import Page from '../layouts/Page.astro';
+import ExperienceSection from '../components/cv/ExperienceSection.astro';
+import EducationSection from '../components/cv/EducationSection.astro';
+import SkillsSection from '../components/cv/SkillsSection.astro';
+import CertificationsSection from '../components/cv/CertificationsSection.astro';
+import LanguagesSection from '../components/cv/LanguagesSection.astro';
+
+const title = 'CV - Hernan Leon | Product Owner, Data Engineer, BI Leader';
+const description = 'Comprehensive CV of Hernan Leon, showcasing 18+ years of experience in data engineering, product management, and business intelligence across Colombia, China, Mexico, and Germany.';
+---
+
+<Page title={title} description={description}>
+  <div class="cv-page">
+    <div class="container">
+      <header class="cv-header">
+        <h1>Curriculum Vitae</h1>
+        <p class="cv-subtitle">18+ Years of International Experience in Data Engineering & Product Management</p>
+      </header>
+
+      <ExperienceSection />
+      <SkillsSection />
+      <EducationSection />
+      <CertificationsSection />
+      <LanguagesSection />
+    </div>
+  </div>
+</Page>
+
+<style>
+  .cv-page {
+    padding: var(--space-8) 0;
+  }
+
+  .cv-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    padding-bottom: var(--space-6);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .cv-header h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .cv-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .cv-header h1 {
+      font-size: var(--font-size-3xl);
+    }
+
+    .cv-subtitle {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>

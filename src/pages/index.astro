@@ -1,17 +1,22 @@
 ---
+/**
+ * Homepage
+ * Composition of Hero, Summary, InternationalExperience, and KeyHighlights
+ */
 
+import Page from '../layouts/Page.astro';
+import Hero from '../components/home/Hero.astro';
+import Summary from '../components/home/Summary.astro';
+import InternationalExperience from '../components/home/InternationalExperience.astro';
+import KeyHighlights from '../components/home/KeyHighlights.astro';
+
+const title = 'Hernan Leon - Data Engineer | Product Manager | Data Analyst';
+const description = 'International data professional with expertise in data engineering, product management, and analytics across Colombia, China, Mexico, and Germany.';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Page title={title} description={description}>
+  <Hero />
+  <Summary />
+  <InternationalExperience />
+  <KeyHighlights />
+</Page>

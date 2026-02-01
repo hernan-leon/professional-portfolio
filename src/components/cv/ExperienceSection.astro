@@ -1,0 +1,43 @@
+---
+/**
+ * Experience Section
+ * Displays all work experience
+ */
+
+import { getCVData } from '../../lib/cv';
+import ExperienceItem from './ExperienceItem.astro';
+
+const cvData = getCVData();
+const { experience } = cvData;
+---
+
+<section class="experience-section">
+  <h2 class="section-title">Professional Experience</h2>
+
+  <div class="experience-list">
+    {experience.map((exp) => (
+      <ExperienceItem experience={exp} />
+    ))}
+  </div>
+</section>
+
+<style>
+  .experience-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+</style>

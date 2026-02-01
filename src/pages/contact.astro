@@ -1,0 +1,183 @@
+---
+/**
+ * Contact Page
+ * Contact information and social links
+ */
+
+import Page from '../layouts/Page.astro';
+import SocialLinks from '../components/contact/SocialLinks.astro';
+import { getCVData } from '../lib/cv';
+
+const cvData = getCVData();
+const { name, email, location } = cvData.personal;
+
+const title = 'Contact - Hernan Leon';
+const description = 'Get in touch with Hernan Leon for data engineering, product management, and business intelligence consulting opportunities.';
+---
+
+<Page title={title} description={description}>
+  <div class="contact-page">
+    <div class="container-narrow">
+      <header class="page-header">
+        <h1>Let's Connect</h1>
+        <p class="page-subtitle">
+          Interested in collaborating on data engineering projects, product development, or business intelligence solutions? I'd love to hear from you.
+        </p>
+      </header>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Contact Information</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>Name:</strong> {name}
+            </div>
+            <div class="info-item">
+              <strong>Location:</strong> {location}
+            </div>
+            <div class="info-item">
+              <strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-section">
+          <h2>Connect With Me</h2>
+          <SocialLinks />
+        </div>
+
+        <div class="availability">
+          <h2>Availability</h2>
+          <p>
+            Currently open to consulting opportunities in:
+          </p>
+          <ul>
+            <li>Data Engineering & Architecture</li>
+            <li>Product Management for Data Products</li>
+            <li>Business Intelligence Solutions</li>
+            <li>Technical Leadership & Team Management</li>
+            <li>International Project Coordination</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</Page>
+
+<style>
+  .contact-page {
+    padding: var(--space-8) 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .contact-info h2,
+  .social-section h2,
+  .availability h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: var(--radius-lg);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .info-grid {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .info-item {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+  }
+
+  .info-item strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+    margin-right: var(--space-2);
+  }
+
+  .info-item a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .info-item a:hover {
+    text-decoration: underline;
+  }
+
+  .availability p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .availability ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .availability li {
+    padding-left: var(--space-4);
+    position: relative;
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+  }
+
+  .availability li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+  }
+
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: var(--font-size-3xl);
+    }
+
+    .page-subtitle {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>

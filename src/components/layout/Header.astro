@@ -1,0 +1,179 @@
+---
+/**
+ * Site Header with Navigation
+ * Features: Clean navigation, responsive mobile menu
+ */
+---
+
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <span class="logo-text">Hernan Leon</span>
+      </a>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/cv" class="nav-link">CV</a></li>
+        <li><a href="/projects" class="nav-link">Projects</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-3) 0;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .logo:hover {
+    color: var(--color-accent);
+  }
+
+  .logo-text {
+    display: inline-block;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-1);
+    color: var(--color-text-primary);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-base);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .mobile-menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 73px; /* Header height */
+      right: 0;
+      width: 100%;
+      max-width: 300px;
+      flex-direction: column;
+      gap: 0;
+      background-color: var(--color-background);
+      border-left: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-4);
+      transform: translateX(100%);
+      transition: transform var(--transition-base);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .nav-links.active {
+      transform: translateX(0);
+    }
+
+    .nav-links li {
+      margin: 0;
+    }
+
+    .nav-link {
+      display: block;
+      padding: var(--space-3) var(--space-2);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.nav') && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Close menu when clicking a link
+    const links = navLinks.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+</script>

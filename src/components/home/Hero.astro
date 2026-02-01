@@ -1,0 +1,163 @@
+---
+/**
+ * Hero Section
+ * Main introduction with name, title, and photo
+ */
+
+import { getCVData } from '../../lib/cv';
+
+const cvData = getCVData();
+const { name, title, headline, photo } = cvData.personal;
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">{name}</h1>
+        <p class="hero-subtitle">{title}</p>
+        <p class="hero-headline">{headline}</p>
+
+        <div class="hero-cta">
+          <a href="/cv" class="btn btn-primary">View CV</a>
+          <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+
+      {photo && (
+        <div class="hero-image">
+          <img
+            src={photo}
+            alt={`${name} - Professional headshot`}
+            class="profile-photo"
+          />
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--space-12) 0 var(--space-8);
+  }
+
+  .hero-content {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
+    .hero-content {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    margin: 0;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .hero-headline {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-tertiary);
+    margin: 0;
+    max-width: 600px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    font-size: var(--font-size-base);
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-photo {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+      order: -1;
+    }
+
+    .profile-photo {
+      max-width: 200px;
+    }
+  }
+</style>

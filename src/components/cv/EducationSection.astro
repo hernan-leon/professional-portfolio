@@ -1,0 +1,168 @@
+---
+/**
+ * Education Section
+ * Displays education history
+ */
+
+import { getCVData, formatDate } from '../../lib/cv';
+
+const cvData = getCVData();
+const { education } = cvData;
+---
+
+<section class="education-section">
+  <h2 class="section-title">Education</h2>
+
+  <div class="education-list">
+    {education.map((edu) => (
+      <article class="education-item">
+        <div class="education-header">
+          <div class="education-title-group">
+            <h3 class="education-degree">{edu.degree} in {edu.field}</h3>
+            <p class="education-institution">{edu.institution}</p>
+            <p class="education-location">📍 {edu.location}</p>
+          </div>
+
+          <div class="education-meta">
+            <p class="education-dates">
+              {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
+            </p>
+            {edu.gpa && (
+              <p class="education-gpa">GPA: {edu.gpa}</p>
+            )}
+          </div>
+        </div>
+
+        {edu.description && (
+          <p class="education-description">{edu.description}</p>
+        )}
+
+        {edu.honors && edu.honors.length > 0 && (
+          <ul class="education-honors">
+            {edu.honors.map((honor) => (
+              <li>{honor}</li>
+            ))}
+          </ul>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .education-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .education-item {
+    padding: var(--space-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-background);
+  }
+
+  .education-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  @media (min-width: 768px) {
+    .education-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .education-title-group {
+    flex: 1;
+  }
+
+  .education-degree {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .education-institution {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent);
+    margin-bottom: var(--space-1);
+  }
+
+  .education-location {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .education-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .education-meta {
+      align-items: flex-end;
+      text-align: right;
+    }
+  }
+
+  .education-dates {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    margin: 0;
+  }
+
+  .education-gpa {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .education-description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-2);
+  }
+
+  .education-honors {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .education-honors li {
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-sm);
+  }
+</style>
