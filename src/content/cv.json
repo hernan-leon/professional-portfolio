@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "Hernan Leon",
-    "title": "Product Owner | Data Engineer | Business Intelligence Leader",
-    "headline": "High quality-oriented software engineer building data solutions across four countries",
-    "summary": "High quality-oriented software engineer with extensive experience designing and implementing solutions for complex business problems involving large scale data warehousing, advanced data analytics and reporting solutions. Working in different countries and with multicultural teams has helped me develop excellent people and social skills. A perfect professional profile mixture with wide experience in product management, team leading, data-engineering and data analytics.",
+    "title": "Product Owner and Systems Architect",
+    "headline": "Twenty years of large-scale data platforms and the teams that build them, in Colombia, China, Mexico and Germany.",
+    "summary": "For twenty years I have taken large, multi-country programmes and got them live: the kind with a dozen stakeholders, three time zones and a regulator waiting at the end. A 200-million-record warehouse built to satisfy IFRS9, the European banking regulation, for Volkswagen Financial Services in China and Mexico, with twenty people across five offices. A CRM platform for BMW China carried through a doubling of its retail network. Today a customer-intelligence product running across a 50-location retail network in Germany, where I own the product, its architecture, the rollout, and the AWS estate underneath.",
     "email": "hernanleon@gmail.com",
     "location": "Germany",
     "linkedIn": "https://linkedin.com/in/hernan-leon/",
@@ -66,7 +66,18 @@
         "Designed Product Catalog search using AWS Elastic Search with ~90,000 vehicle models",
         "Lead assigned data science team (internal and external) across Germany, Morocco, China, Mexico"
       ],
-      "technologies": ["Python", "AWS S3", "AWS Glue", "AWS Lambda", "AWS QuickSight", "AWS Athena", "AWS Elastic Search", "Machine Learning", "SQL Server", "Parquet"],
+      "technologies": [
+        "Python",
+        "AWS S3",
+        "AWS Glue",
+        "AWS Lambda",
+        "AWS QuickSight",
+        "AWS Athena",
+        "AWS Elastic Search",
+        "Machine Learning",
+        "SQL Server",
+        "Parquet"
+      ],
       "type": "full-time"
     },
     {
@@ -87,7 +98,18 @@
         "Designed pilot data platform using Azure Databricks for telemetry data from test vehicles",
         "Developed data pipelines using Databricks notebooks and Delta Lake with Azure Blob Storage"
       ],
-      "technologies": ["AWS Machine Learning", "Azure Databricks", "Delta Lake", "Azure Blob Storage", "Power BI", "SQL", "Python", "SAS", "ETL", "Data Warehousing"],
+      "technologies": [
+        "AWS Machine Learning",
+        "Azure Databricks",
+        "Delta Lake",
+        "Azure Blob Storage",
+        "Power BI",
+        "SQL",
+        "Python",
+        "SAS",
+        "ETL",
+        "Data Warehousing"
+      ],
       "type": "full-time"
     },
     {
@@ -106,7 +128,14 @@
         "Advised clients and team members on automotive strategy and CRM topics at all management levels",
         "Mapped business processes to BI solutions and defined IT architectures"
       ],
-      "technologies": ["SQL Server", "Microsoft Navision", "CRM Systems", "ETL", "Data Migration", "Business Intelligence"],
+      "technologies": [
+        "SQL Server",
+        "Microsoft Navision",
+        "CRM Systems",
+        "ETL",
+        "Data Migration",
+        "Business Intelligence"
+      ],
       "type": "full-time"
     },
     {
@@ -125,7 +154,15 @@
         "Led CRM requirements and standards for all Auto Premium OEM lifestyle shops",
         "Queried, extracted, processed and prepared sales, marketing and after-sales data for automotive clients"
       ],
-      "technologies": ["SQL Server", "SSIS", "Goldmine CRM", "ETL", "Data Warehousing", "QlikView", "QlikSense"],
+      "technologies": [
+        "SQL Server",
+        "SSIS",
+        "Goldmine CRM",
+        "ETL",
+        "Data Warehousing",
+        "QlikView",
+        "QlikSense"
+      ],
       "type": "full-time"
     },
     {
@@ -142,7 +179,15 @@
         "Developed WEB and Windows Applications with DotNet Technology for multiple Colombian clients",
         "Changed paradigm of security systems from camera monitoring to event-driven action responses"
       ],
-      "technologies": ["DotNet", "C#", "ASP.NET", "SQL Server", "MySQL", "Security Systems", "CCTV Integration"],
+      "technologies": [
+        "DotNet",
+        "C#",
+        "ASP.NET",
+        "SQL Server",
+        "MySQL",
+        "Security Systems",
+        "CCTV Integration"
+      ],
       "type": "full-time"
     }
   ],
@@ -183,73 +228,201 @@
       {
         "category": "Data Engineering & Warehousing",
         "skills": [
-          {"name": "SQL", "proficiency": "expert", "yearsOfExperience": 18},
-          {"name": "ETL/ELT", "proficiency": "expert", "yearsOfExperience": 16},
-          {"name": "Data Warehousing", "proficiency": "expert", "yearsOfExperience": 16},
-          {"name": "Data Modeling", "proficiency": "expert", "yearsOfExperience": 16},
-          {"name": "Python", "proficiency": "advanced", "yearsOfExperience": 8},
-          {"name": "R Programming", "proficiency": "intermediate", "yearsOfExperience": 4}
+          {
+            "name": "SQL",
+            "proficiency": "expert",
+            "yearsOfExperience": 18
+          },
+          {
+            "name": "ETL/ELT",
+            "proficiency": "expert",
+            "yearsOfExperience": 16
+          },
+          {
+            "name": "Data Warehousing",
+            "proficiency": "expert",
+            "yearsOfExperience": 16
+          },
+          {
+            "name": "Data Modeling",
+            "proficiency": "expert",
+            "yearsOfExperience": 16
+          },
+          {
+            "name": "Python",
+            "proficiency": "advanced",
+            "yearsOfExperience": 8
+          },
+          {
+            "name": "R Programming",
+            "proficiency": "intermediate",
+            "yearsOfExperience": 4
+          }
         ]
       },
       {
         "category": "Cloud & Big Data",
         "skills": [
-          {"name": "AWS", "proficiency": "expert", "yearsOfExperience": 6},
-          {"name": "Azure", "proficiency": "advanced", "yearsOfExperience": 4},
-          {"name": "AWS Glue", "proficiency": "expert"},
-          {"name": "AWS QuickSight", "proficiency": "advanced"},
-          {"name": "AWS Athena", "proficiency": "advanced"},
-          {"name": "AWS Elastic Search", "proficiency": "advanced"},
-          {"name": "Azure Databricks", "proficiency": "advanced"},
-          {"name": "Delta Lake", "proficiency": "intermediate"}
+          {
+            "name": "AWS",
+            "proficiency": "expert",
+            "yearsOfExperience": 6
+          },
+          {
+            "name": "Azure",
+            "proficiency": "advanced",
+            "yearsOfExperience": 4
+          },
+          {
+            "name": "AWS Glue",
+            "proficiency": "expert"
+          },
+          {
+            "name": "AWS QuickSight",
+            "proficiency": "advanced"
+          },
+          {
+            "name": "AWS Athena",
+            "proficiency": "advanced"
+          },
+          {
+            "name": "AWS Elastic Search",
+            "proficiency": "advanced"
+          },
+          {
+            "name": "Azure Databricks",
+            "proficiency": "advanced"
+          },
+          {
+            "name": "Delta Lake",
+            "proficiency": "intermediate"
+          }
         ]
       },
       {
         "category": "Business Intelligence & Visualization",
         "skills": [
-          {"name": "Power BI", "proficiency": "expert", "yearsOfExperience": 8},
-          {"name": "QlikView", "proficiency": "expert", "yearsOfExperience": 10},
-          {"name": "QlikSense", "proficiency": "advanced", "yearsOfExperience": 6},
-          {"name": "SSRS", "proficiency": "advanced", "yearsOfExperience": 12},
-          {"name": "Tableau", "proficiency": "intermediate", "yearsOfExperience": 3}
+          {
+            "name": "Power BI",
+            "proficiency": "expert",
+            "yearsOfExperience": 8
+          },
+          {
+            "name": "QlikView",
+            "proficiency": "expert",
+            "yearsOfExperience": 10
+          },
+          {
+            "name": "QlikSense",
+            "proficiency": "advanced",
+            "yearsOfExperience": 6
+          },
+          {
+            "name": "SSRS",
+            "proficiency": "advanced",
+            "yearsOfExperience": 12
+          },
+          {
+            "name": "Tableau",
+            "proficiency": "intermediate",
+            "yearsOfExperience": 3
+          }
         ]
       },
       {
         "category": "Databases",
         "skills": [
-          {"name": "MS SQL Server", "proficiency": "expert", "yearsOfExperience": 18},
-          {"name": "MySQL", "proficiency": "advanced", "yearsOfExperience": 10},
-          {"name": "Oracle", "proficiency": "intermediate", "yearsOfExperience": 5}
+          {
+            "name": "MS SQL Server",
+            "proficiency": "expert",
+            "yearsOfExperience": 18
+          },
+          {
+            "name": "MySQL",
+            "proficiency": "advanced",
+            "yearsOfExperience": 10
+          },
+          {
+            "name": "Oracle",
+            "proficiency": "intermediate",
+            "yearsOfExperience": 5
+          }
         ]
       },
       {
         "category": "Machine Learning & AI",
         "skills": [
-          {"name": "Machine Learning", "proficiency": "intermediate"},
-          {"name": "AWS Machine Learning", "proficiency": "advanced"},
-          {"name": "Deep Neural Networks", "proficiency": "intermediate"},
-          {"name": "Regression Models", "proficiency": "advanced"},
-          {"name": "Classification Models", "proficiency": "advanced"}
+          {
+            "name": "Machine Learning",
+            "proficiency": "intermediate"
+          },
+          {
+            "name": "AWS Machine Learning",
+            "proficiency": "advanced"
+          },
+          {
+            "name": "Deep Neural Networks",
+            "proficiency": "intermediate"
+          },
+          {
+            "name": "Regression Models",
+            "proficiency": "advanced"
+          },
+          {
+            "name": "Classification Models",
+            "proficiency": "advanced"
+          }
         ]
       },
       {
         "category": "Product Management",
         "skills": [
-          {"name": "Product Ownership", "proficiency": "expert"},
-          {"name": "Agile/Scrum", "proficiency": "expert"},
-          {"name": "Stakeholder Management", "proficiency": "expert"},
-          {"name": "Team Leadership", "proficiency": "expert"},
-          {"name": "Cross-cultural Management", "proficiency": "expert"},
-          {"name": "Requirements Analysis", "proficiency": "expert"}
+          {
+            "name": "Product Ownership",
+            "proficiency": "expert"
+          },
+          {
+            "name": "Agile/Scrum",
+            "proficiency": "expert"
+          },
+          {
+            "name": "Stakeholder Management",
+            "proficiency": "expert"
+          },
+          {
+            "name": "Team Leadership",
+            "proficiency": "expert"
+          },
+          {
+            "name": "Cross-cultural Management",
+            "proficiency": "expert"
+          },
+          {
+            "name": "Requirements Analysis",
+            "proficiency": "expert"
+          }
         ]
       },
       {
         "category": "Domain Knowledge",
         "skills": [
-          {"name": "Automotive Industry", "proficiency": "expert", "yearsOfExperience": 16},
-          {"name": "CRM Systems", "proficiency": "expert"},
-          {"name": "Finance & Risk", "proficiency": "advanced"},
-          {"name": "IFRS9 Compliance", "proficiency": "advanced"}
+          {
+            "name": "Automotive Industry",
+            "proficiency": "expert",
+            "yearsOfExperience": 16
+          },
+          {
+            "name": "CRM Systems",
+            "proficiency": "expert"
+          },
+          {
+            "name": "Finance & Risk",
+            "proficiency": "advanced"
+          },
+          {
+            "name": "IFRS9 Compliance",
+            "proficiency": "advanced"
+          }
         ]
       }
     ]
@@ -260,7 +433,15 @@
       "name": "CARDESS.ENGAGE – Automotive Dealer Platform",
       "description": "End-to-end data-driven platform generating qualified leads for automotive dealers through customer data mining and ML predictions",
       "role": "Product Owner & Technical Lead",
-      "technologies": ["Python", "AWS S3", "AWS Glue", "AWS Lambda", "AWS QuickSight", "Machine Learning", "Elastic Search"],
+      "technologies": [
+        "Python",
+        "AWS S3",
+        "AWS Glue",
+        "AWS Lambda",
+        "AWS QuickSight",
+        "Machine Learning",
+        "Elastic Search"
+      ],
       "startDate": "2020-01",
       "endDate": null,
       "highlights": [
@@ -276,7 +457,14 @@
       "name": "CONNECT – IFRS9 Compliance DWH",
       "description": "Enterprise data warehouse for Volkswagen Finance China and Mexico fulfilling European Central Bank IFRS9 regulations",
       "role": "Architect & Technical Leader",
-      "technologies": ["SQL Server", "SSIS", "Python", "ETL", "Data Warehousing", "SAS"],
+      "technologies": [
+        "SQL Server",
+        "SSIS",
+        "Python",
+        "ETL",
+        "Data Warehousing",
+        "SAS"
+      ],
       "startDate": "2015-01",
       "endDate": "2019-12",
       "highlights": [
@@ -292,7 +480,14 @@
       "name": "BMW China CRM & DWH Implementation",
       "description": "Enterprise CRM and data warehouse implementation supporting BMW's exponential growth in China from 2008-2015",
       "role": "Main ETL Developer → Senior Consultant → Associate Director",
-      "technologies": ["Goldmine", "CARMEN", "SQL Server", "SSIS", "QlikView", "ETL"],
+      "technologies": [
+        "Goldmine",
+        "CARMEN",
+        "SQL Server",
+        "SSIS",
+        "QlikView",
+        "ETL"
+      ],
       "startDate": "2008-06",
       "endDate": "2015-01",
       "highlights": [
@@ -314,9 +509,141 @@
     }
   ],
   "languages": [
-    {"language": "Spanish", "proficiency": "native"},
-    {"language": "English", "proficiency": "fluent"},
-    {"language": "Italian", "proficiency": "intermediate"},
-    {"language": "German", "proficiency": "basic"}
-  ]
+    {
+      "language": "Spanish",
+      "proficiency": "native"
+    },
+    {
+      "language": "English",
+      "proficiency": "fluent"
+    },
+    {
+      "language": "Italian",
+      "proficiency": "intermediate"
+    },
+    {
+      "language": "German",
+      "proficiency": "basic"
+    }
+  ],
+  "home": {
+    "displayTitle": "Twenty years of large-scale data platforms, built in four countries.",
+    "places": "Bogotá, then Beijing and Shanghai, then Puebla at a distance, now Munich.",
+    "lede": "For twenty years I have taken large, multi-country programmes and got them live: the kind with a dozen stakeholders, three time zones and a regulator waiting at the end.",
+    "paragraphs": [
+      "A 200-million-record warehouse built to satisfy IFRS9, the European banking regulation, for Volkswagen Financial Services in China and Mexico, with twenty people across five offices. A CRM platform for BMW China carried through a doubling of its retail network. Today a customer-intelligence product running across a 50-location retail network in Germany, where I own the product, its architecture, the rollout, and the AWS estate underneath.",
+      "The industry has been automotive and the finance arms attached to it. The problems have not been: regulated data at scale, a distributed retail network, and a product several thousand people open every morning.",
+      "The last ten months have been the same work with more reach. AI agents now carry the load that used to need a team around me, which is how one person covers product, architecture, implementation and infrastructure without giving up any of the scope."
+    ],
+    "timeline": {
+      "axisStart": "2006",
+      "axisEnd": "2026",
+      "note": "The thin band is Mexico. I led the Volkswagen Financial Services warehouse build in Puebla for five years without leaving China, which is where I learned to run a team across time zones.",
+      "spans": [
+        {
+          "name": "Colombia",
+          "years": "2006–08",
+          "tone": "1",
+          "label": false
+        },
+        {
+          "name": "China",
+          "years": "2008–20",
+          "tone": "2",
+          "label": true
+        },
+        {
+          "name": "Germany",
+          "years": "2020–",
+          "tone": "3",
+          "label": true
+        }
+      ],
+      "remote": {
+        "name": "Mexico",
+        "years": "2015–20, remote",
+        "left": 41.25,
+        "width": 24.75
+      }
+    },
+    "capabilities": [
+      {
+        "name": "Leading international teams",
+        "body": "Twenty people across Beijing, Shanghai, Munich, Casablanca and Puebla, on one programme, in three time zones. I built the handover method that turned the time difference into an advantage instead of a tax. I have led as a developer among the team and as the person accountable for the whole delivery, in four countries and three languages."
+      },
+      {
+        "name": "Product ownership",
+        "body": "I decide what the products do next and carry them to the businesses that run on them: a retail network of 50 locations. Recently a retail-system integration for BMW North America, lead scoring that reads a buyer's budget, authority, need and timing, and a configuration report customers can read without me in the room."
+      },
+      {
+        "name": "System architecture",
+        "body": "A 200-million-record warehouse for Volkswagen Financial Services in China and Mexico, designed to satisfy IFRS9 across ten business areas and sixty business objects. Today: three AWS accounts, a Kubernetes cluster per environment, ArgoCD deploying from a GitOps repository whose secrets are sealed with KMS, all of it written as Terraform."
+      },
+      {
+        "name": "Implementation and rollout",
+        "body": "Getting it live is the job, and it is the part most programmes fail at. A CRM platform for BMW China through a doubling of its retail network to 400 partners and 500 users. BMW North America through staging into production. New customers imported, enriched and handed over."
+      },
+      {
+        "name": "Infrastructure",
+        "body": "The platform stays up because someone reads the alarms. I found and fixed the firewall rules quietly returning errors on legitimate file uploads, put the API documentation behind constant-time credential checks, and built the tooling that pulls a production log off any server without opening an SSH port."
+      },
+      {
+        "name": "Working with AI agents",
+        "body": "The last ten months have been the same work with more reach. Agents carry what used to need a team around me, 229 commits across ten codebases, while I keep the architecture and the judgement calls. It is leverage on twenty years of pattern recognition, not a substitute for it."
+      }
+    ],
+    "figures": [
+      {
+        "value": "200M",
+        "label": "transaction records in a regulated finance data warehouse"
+      },
+      {
+        "value": "20",
+        "label": "people led across five offices and three time zones"
+      },
+      {
+        "value": "50",
+        "label": "retail locations running the platform in Germany"
+      },
+      {
+        "value": "4",
+        "label": "countries, on four continents"
+      }
+    ],
+    "figuresAside": "And lately, 229 commits across ten codebases in ten months, with agent support written into fourteen repositories.",
+    "careerRows": [
+      {
+        "years": "2020–",
+        "where": "Munich",
+        "role": "Product Owner, CARDESS",
+        "scope": "Customer-intelligence products across a 50-location retail network"
+      },
+      {
+        "years": "2015–2020",
+        "where": "Beijing, Shanghai",
+        "role": "Associate Director, Business Intelligence",
+        "scope": "IFRS9 regulatory warehouse for Volkswagen Financial Services, 20 people in five offices"
+      },
+      {
+        "years": "2012–2015",
+        "where": "Beijing, Shanghai",
+        "role": "Senior BI Consultant",
+        "scope": "BMW's CRM landscape, Porsche Holding's group finance reporting"
+      },
+      {
+        "years": "2008–2012",
+        "where": "Beijing",
+        "role": "BI Developer",
+        "scope": "BMW China CRM and warehouse, 500 users, retail network doubled to 400 partners"
+      },
+      {
+        "years": "2006–2008",
+        "where": "Bogotá",
+        "role": "Software Developer",
+        "scope": "Event-driven security systems for British Petroleum's oil fields"
+      }
+    ],
+    "closing": "If you have a large programme that has to land in several countries at once, with the team spread across them, that is the part I am good at.",
+    "footnote": "Spanish, English, Italian, some German. Based in Germany."
+  }
 }

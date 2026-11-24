@@ -1,163 +1,217 @@
 ---
 /**
  * Hero Section
- * Main introduction with name, title, and photo
+ * Name, display headline, portrait, and the career timeline ribbon.
+ *
+ * The ribbon is the one place colour appears on this page. Its three bands are
+ * a sequential ramp deepening over time (the places lived); the thin band below
+ * is the posting led remotely, which is why it breaks the ramp.
  */
 
 import { getCVData } from '../../lib/cv';
 
 const cvData = getCVData();
-const { name, title, headline, photo } = cvData.personal;
+const { name, title, photo } = cvData.personal;
+const { displayTitle, places, timeline } = cvData.home;
 ---
 
 <section class="hero">
-  <div class="container">
-    <div class="hero-content">
+  <div class="container-narrow">
+    <div class="hero-top">
       <div class="hero-text">
-        <h1 class="hero-title">{name}</h1>
-        <p class="hero-subtitle">{title}</p>
-        <p class="hero-headline">{headline}</p>
-
-        <div class="hero-cta">
-          <a href="/cv" class="btn btn-primary">View CV</a>
-          <a href="/contact" class="btn btn-secondary">Get in Touch</a>
-        </div>
+        <h1 class="hero-title">{displayTitle}</h1>
+        <p class="hero-role">{title}, MCON Group</p>
+        <p class="hero-places">{places}</p>
       </div>
 
       {photo && (
-        <div class="hero-image">
-          <img
-            src={photo}
-            alt={`${name} - Professional headshot`}
-            class="profile-photo"
-          />
-        </div>
+        <figure class="portrait">
+          <img src={photo} alt={`${name}, portrait`} width="880" height="1100" />
+        </figure>
       )}
+    </div>
+
+    <div class="ribbon">
+      <div class="track">
+        {timeline.spans.map((span) => (
+          <div class={`seg tone-${span.tone}`}>{span.label ? span.name : ''}</div>
+        ))}
+      </div>
+      <div class="subtrack">
+        <div
+          class="bar"
+          style={`left:${timeline.remote.left}%;width:${timeline.remote.width}%`}
+        ></div>
+      </div>
+      <div class="scale">
+        <span>{timeline.axisStart}</span><span>{timeline.axisEnd}</span>
+      </div>
+
+      <ul class="legend">
+        {timeline.spans.map((span) => (
+          <li><i class={`swatch tone-${span.tone}`}></i>{span.name}, {span.years}</li>
+        ))}
+        <li><i class="swatch tone-remote"></i>{timeline.remote.name}, {timeline.remote.years}</li>
+      </ul>
+
+      <p class="ribbon-note">{timeline.note}</p>
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    padding: var(--space-12) 0 var(--space-8);
+    padding: var(--space-8) 0 0;
   }
 
-  .hero-content {
+  .hero-top {
     display: grid;
-    gap: var(--space-8);
-    align-items: center;
-  }
-
-  @media (min-width: 768px) {
-    .hero {
-      padding: var(--space-16) 0 var(--space-12);
-    }
-
-    .hero-content {
-      grid-template-columns: 1.5fr 1fr;
-    }
-  }
-
-  .hero-text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+    grid-template-columns: 1fr 196px;
+    gap: var(--space-6);
+    align-items: start;
   }
 
   .hero-title {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-tight);
-    color: var(--color-text-primary);
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
     margin: 0;
   }
 
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: var(--font-size-3xl);
-    }
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-xl);
+  .hero-role {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
     color: var(--color-text-secondary);
-    margin: 0;
-    font-weight: var(--font-weight-medium);
+    margin: var(--space-3) 0 0;
   }
 
-  .hero-headline {
+  .hero-places {
     font-size: var(--font-size-lg);
-    color: var(--color-text-tertiary);
+    color: var(--color-text-secondary);
+    margin: 0.625rem 0 0;
+    max-width: 34em;
+  }
+
+  .portrait {
     margin: 0;
-    max-width: 600px;
   }
 
-  .hero-cta {
-    display: flex;
-    gap: var(--space-3);
-    margin-top: var(--space-2);
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-md);
-    font-weight: var(--font-weight-medium);
-    text-decoration: none;
-    transition: all var(--transition-base);
-    font-size: var(--font-size-base);
-  }
-
-  .btn-primary {
-    background-color: var(--color-accent);
-    color: #ffffff;
-  }
-
-  .btn-primary:hover {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--color-text-primary);
-    border: 2px solid var(--color-border);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-  }
-
-  .hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .profile-photo {
+  .portrait img {
     width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-    aspect-ratio: 1 / 1;
+    object-position: 50% 22%;
+    border-radius: var(--radius-sm);
+    filter: grayscale(0.18) contrast(1.02);
   }
 
-  @media (max-width: 768px) {
-    .hero-content {
+  /* ---- the ribbon ---- */
+  .ribbon {
+    margin-top: var(--space-6);
+  }
+
+  .track {
+    display: grid;
+    grid-template-columns: 7.5fr 57.5fr 35fr;
+    gap: 3px;
+    height: 46px;
+  }
+
+  .seg {
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    padding-inline: 0.625rem;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: #f2f3ef;
+    letter-spacing: 0.04em;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .tone-1 { background-color: var(--color-span-1); }
+  .tone-2 { background-color: var(--color-span-2); }
+  .tone-3 { background-color: var(--color-span-3); }
+  .tone-remote { background-color: var(--color-span-remote); }
+
+  .subtrack {
+    position: relative;
+    height: 13px;
+    margin-top: 3px;
+  }
+
+  .subtrack .bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: var(--color-span-remote);
+    border-radius: var(--radius-sm);
+  }
+
+  .scale {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    margin-top: 0.625rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem var(--space-3);
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .legend li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin: 0;
+    color: inherit;
+  }
+
+  .swatch {
+    width: 9px;
+    height: 9px;
+    border-radius: var(--radius-sm);
+    flex: none;
+  }
+
+  .ribbon-note {
+    font-size: var(--font-size-base);
+    color: var(--color-text-tertiary);
+    margin: var(--space-3) 0 0;
+    max-width: 40em;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  @media (max-width: 760px) {
+    .hero-top {
       grid-template-columns: 1fr;
+      gap: var(--space-4);
     }
 
-    .hero-image {
-      order: -1;
+    .portrait {
+      max-width: 158px;
     }
+  }
 
-    .profile-photo {
-      max-width: 200px;
+  @media (max-width: 620px) {
+    .seg {
+      font-size: 0;
     }
   }
 </style>

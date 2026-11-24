@@ -1,0 +1,105 @@
+---
+/**
+ * Work Section
+ * The narrative, then six capabilities as a labelled list.
+ *
+ * Order is deliberate: leadership and scale first, AI agents last. The agent
+ * work is one capability of six, not the frame of the page.
+ */
+
+import { getCVData } from '../../lib/cv';
+
+const cvData = getCVData();
+const { lede, paragraphs, capabilities } = cvData.home;
+---
+
+<section class="work" id="work">
+  <div class="container-narrow">
+    <h2 class="kicker">The work</h2>
+
+    <p class="lede">{lede}</p>
+    {paragraphs.map((text) => <p class="body">{text}</p>)}
+
+    <div class="caps">
+      {capabilities.map((cap) => (
+        <div class="cap">
+          <h3>{cap.name}</h3>
+          <p>{cap.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .work {
+    padding: var(--space-10) 0 0;
+  }
+
+  .kicker {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin: 0 0 var(--space-3);
+  }
+
+  .lede {
+    font-size: 1.4375rem;
+    line-height: 1.55;
+    font-weight: 300;
+    max-width: 33em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .body {
+    max-width: 36em;
+    margin: var(--space-3) 0 0;
+  }
+
+  .caps {
+    display: grid;
+    margin-top: var(--space-5);
+  }
+
+  .cap {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: var(--space-1) var(--space-4);
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cap:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cap h3 {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    padding-top: 0.3125rem;
+    margin: 0;
+  }
+
+  .cap p {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    max-width: 34em;
+    margin: 0;
+  }
+
+  @media (max-width: 620px) {
+    .cap {
+      grid-template-columns: 1fr;
+    }
+
+    .cap h3 {
+      padding-top: 0;
+    }
+  }
+</style>

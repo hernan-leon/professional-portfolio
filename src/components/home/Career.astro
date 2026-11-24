@@ -1,0 +1,154 @@
+---
+/**
+ * Career Section
+ * A real table — the content is genuinely tabular, so it is set as one.
+ */
+
+import { getCVData } from '../../lib/cv';
+
+const cvData = getCVData();
+const { careerRows, closing, footnote } = cvData.home;
+const { email, linkedIn, github } = cvData.personal;
+---
+
+<section class="career" id="career">
+  <div class="container-narrow">
+    <h2 class="kicker">Career</h2>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Years</th><th>Where</th><th>Role</th><th>Scope</th></tr>
+        </thead>
+        <tbody>
+          {careerRows.map((row) => (
+            <tr>
+              <td class="yr">{row.years}</td>
+              <td>{row.where}</td>
+              <td class="role">{row.role}</td>
+              <td>{row.scope}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="close" id="contact">
+      <p>{closing}</p>
+      <div class="links">
+        <a href={`mailto:${email}`}>{email}</a>
+        <a href={linkedIn}>LinkedIn</a>
+        {github && <a href={github}>GitHub</a>}
+      </div>
+    </div>
+
+    <p class="footnote">{footnote}</p>
+  </div>
+</section>
+
+<style>
+  .career {
+    padding: var(--space-10) 0 var(--space-8);
+  }
+
+  .kicker {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin: 0 0 var(--space-3);
+  }
+
+  .tablewrap {
+    overflow-x: auto;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 540px;
+  }
+
+  th {
+    font-family: var(--font-family-sans);
+    font-size: 0.6875rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    text-align: left;
+    padding: 0 var(--space-3) 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  td {
+    padding: 1.125rem var(--space-3) 1.125rem 0;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  td.yr {
+    font-family: var(--font-family-sans);
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    font-size: var(--font-size-sm);
+    padding-top: 1.25rem;
+  }
+
+  td.role {
+    color: var(--color-text-primary);
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: 0;
+  }
+
+  .close {
+    padding-top: var(--space-8);
+  }
+
+  .close p {
+    font-size: 1.4375rem;
+    font-weight: 300;
+    max-width: 26em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
+  }
+
+  .links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 3px;
+  }
+
+  .links a:hover,
+  .links a:focus-visible {
+    border-bottom-color: var(--color-text-primary);
+  }
+
+  .footnote {
+    margin: var(--space-8) 0 0;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+</style>

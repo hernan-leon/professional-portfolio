@@ -30,6 +30,13 @@ const currentYear = new Date().getFullYear();
 </footer>
 
 <style>
+  footer, footer a, footer p, footer li {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+  }
+  footer a { color: var(--color-text-secondary); }
+  footer a:hover { color: var(--color-text-primary); }
+
   .footer {
     border-top: 1px solid var(--color-border);
     padding: var(--space-8) 0;

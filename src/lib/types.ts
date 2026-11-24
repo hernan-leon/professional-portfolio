@@ -97,8 +97,62 @@ export interface Language {
   proficiency: 'native' | 'fluent' | 'professional' | 'intermediate' | 'basic';
 }
 
+export interface TimelineSpan {
+  name: string;
+  years: string;
+  tone: '1' | '2' | '3';
+  label: boolean;
+}
+
+export interface TimelineRemote {
+  name: string;
+  years: string;
+  left: number;
+  width: number;
+}
+
+export interface Timeline {
+  axisStart: string;
+  axisEnd: string;
+  note: string;
+  spans: TimelineSpan[];
+  remote: TimelineRemote;
+}
+
+export interface Capability {
+  name: string;
+  body: string;
+}
+
+export interface Figure {
+  value: string;
+  label: string;
+}
+
+export interface CareerRow {
+  years: string;
+  where: string;
+  role: string;
+  scope: string;
+}
+
+export interface Home {
+  displayTitle: string;
+  places: string;
+  lede: string;
+  paragraphs: string[];
+  timeline: Timeline;
+  capabilities: Capability[];
+  figures: Figure[];
+  figuresAside: string;
+  careerRows: CareerRow[];
+  closing: string;
+  footnote: string;
+}
+
 export interface CVData {
   personal: Personal;
+  home: Home;
   international: International;
   highlights: string[];
   experience: Experience[];

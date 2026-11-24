@@ -21,24 +21,26 @@ html {
 
 body {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
+  font-size: 1.125rem;
+  line-height: var(--line-height-relaxed);
   color: var(--color-text-primary);
   background-color: var(--color-background);
   min-height: 100vh;
 }
 
-/* Typography */
+/* Typography — display sizes run light; weight is carried by scale, not bold */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-normal);
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-2);
   color: var(--color-text-primary);
+  text-wrap: balance;
 }
 
 h1 {
   font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: 300;
+  letter-spacing: -0.02em;
 }
 
 h2 {
@@ -84,7 +86,7 @@ p {
 a {
   color: var(--color-accent);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 a:hover {
@@ -161,9 +163,9 @@ pre code {
 }
 
 .container-narrow {
-  max-width: var(--max-width-narrow);
+  max-width: calc(var(--max-width-narrow) + (2 * var(--space-3)));
   margin: 0 auto;
-  padding: 0 var(--grid-gutter-mobile);
+  padding: 0 var(--space-3);
 }
 
 .container-wide {
@@ -272,7 +274,7 @@ img {
 /* Selection styles */
 ::selection {
   background-color: var(--color-accent);
-  color: #ffffff;
+  color: var(--color-background);
 }
 
 /* Smooth transitions for theme changes */

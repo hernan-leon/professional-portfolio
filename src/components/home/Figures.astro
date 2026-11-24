@@ -1,0 +1,82 @@
+---
+/**
+ * Figures Section
+ * The career numbers as the headline figures. The last ten months appear once,
+ * as a quiet line underneath, rather than as tiles of their own.
+ */
+
+import { getCVData } from '../../lib/cv';
+
+const cvData = getCVData();
+const { figures, figuresAside } = cvData.home;
+---
+
+<section class="figures">
+  <div class="container-narrow">
+    <h2 class="kicker">Twenty years, measured</h2>
+
+    <dl class="figs">
+      {figures.map((fig) => (
+        <div class="fig">
+          <dt class="value">{fig.value}</dt>
+          <dd class="label">{fig.label}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <p class="aside">{figuresAside}</p>
+  </div>
+</section>
+
+<style>
+  .figures {
+    padding: var(--space-10) 0 0;
+  }
+
+  .kicker {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin: 0 0 var(--space-3);
+  }
+
+  .figs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    gap: var(--space-4) var(--space-3);
+    margin: 0;
+  }
+
+  .fig {
+    display: block;
+  }
+
+  .value {
+    font-size: 2.375rem;
+    line-height: 1;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+  }
+
+  .label {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0.5625rem 0 0;
+    line-height: 1.4;
+  }
+
+  .aside {
+    font-size: var(--font-size-base);
+    color: var(--color-text-tertiary);
+    margin: var(--space-4) 0 0;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    max-width: 40em;
+  }
+</style>
